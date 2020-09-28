@@ -1,0 +1,7 @@
+{
+  "name": "consitution-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

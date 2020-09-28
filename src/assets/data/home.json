@@ -1,0 +1,60 @@
+[
+    {
+      "heading": "Highlights",
+      "Highlight": [
+        {
+          "title": "Highlight 1",
+          "content": "Praesent sed lorem sit amet mi maximus convallis eu eget velit. Aenean ac enim mauris. Maecenas blandit sem at nunc tristique, vel tincidunt magna elementum. In commodo nibh a felis ornare, sed feugiat dui hendrerit. Sed vestibulum ipsum vitae lectus convallis tincidunt. Suspendisse a justo vel nunc auctor sollicitudin."
+        },
+        {
+          "title": "Highlight 2",
+          "content": "Praesent sed lorem sit amet mi maximus convallis eu eget velit. Aenean ac enim mauris. Maecenas blandit sem at nunc tristique, vel tincidunt magna elementum. In commodo nibh a felis ornare, sed feugiat dui hendrerit. Sed vestibulum ipsum vitae lectus convallis tincidunt. Suspendisse a justo vel nunc auctor sollicitudin."
+        },
+        {
+          "title": "Highlight 3",
+          "content": "Praesent sed lorem sit amet mi maximus convallis eu eget velit. Aenean ac enim mauris. Maecenas blandit sem at nunc tristique, vel tincidunt magna elementum. In commodo nibh a felis ornare, sed feugiat dui hendrerit. Sed vestibulum ipsum vitae lectus convallis tincidunt. Suspendisse a justo vel nunc auctor sollicitudin."
+        }
+      ]
+    },
+
+    {
+      "heading": "Popular Topics",
+      "Highlight": [
+        {
+          "title": "Topic 1",
+          "content": "Praesent sed lorem sit amet mi maximus convallis eu eget velit. Aenean ac enim mauris. Maecenas blandit sem at nunc tristique, vel tincidunt magna elementum. In commodo nibh a felis ornare, sed feugiat dui hendrerit. Sed vestibulum ipsum vitae lectus convallis tincidunt. Suspendisse a justo vel nunc auctor sollicitudin."
+        },
+        {
+          "title": "Topic 2",
+          "content": "Praesent sed lorem sit amet mi maximus convallis eu eget velit. Aenean ac enim mauris. Maecenas blandit sem at nunc tristique, vel tincidunt magna elementum. In commodo nibh a felis ornare, sed feugiat dui hendrerit. Sed vestibulum ipsum vitae lectus convallis tincidunt. Suspendisse a justo vel nunc auctor sollicitudin."
+        },
+        {
+          "title": "Topic 3",
+          "content": "Praesent sed lorem sit amet mi maximus convallis eu eget velit. Aenean ac enim mauris. Maecenas blandit sem at nunc tristique, vel tincidunt magna elementum. In commodo nibh a felis ornare, sed feugiat dui hendrerit. Sed vestibulum ipsum vitae lectus convallis tincidunt. Suspendisse a justo vel nunc auctor sollicitudin."
+        }
+      ]
+    },
+
+    {
+      "heading": "Popular Cases",
+      "Highlight": [
+        {
+          "title": "Case 1",
+          "content": "Praesent sed lorem sit amet mi maximus convallis eu eget velit. Aenean ac enim mauris. Maecenas blandit sem at nunc tristique, vel tincidunt magna elementum. In commodo nibh a felis ornare, sed feugiat dui hendrerit. Sed vestibulum ipsum vitae lectus convallis tincidunt. Suspendisse a justo vel nunc auctor sollicitudin."
+        },
+        {
+          "title": "Case 2",
+          "content": "Praesent sed lorem sit amet mi maximus convallis eu eget velit. Aenean ac enim mauris. Maecenas blandit sem at nunc tristique, vel tincidunt magna elementum. In commodo nibh a felis ornare, sed feugiat dui hendrerit. Sed vestibulum ipsum vitae lectus convallis tincidunt. Suspendisse a justo vel nunc auctor sollicitudin."
+        },
+        {
+          "title": "Case 3",
+          "content": "Praesent sed lorem sit amet mi maximus convallis eu eget velit. Aenean ac enim mauris. Maecenas blandit sem at nunc tristique, vel tincidunt magna elementum. In commodo nibh a felis ornare, sed feugiat dui hendrerit. Sed vestibulum ipsum vitae lectus convallis tincidunt. Suspendisse a justo vel nunc auctor sollicitudin."
+        },
+        {
+          "title": "Case 3",
+          "content": "Praesent sed lorem sit amet mi maximus convallis eu eget velit. Aenean ac enim mauris. Maecenas blandit sem at nunc tristique, vel tincidunt magna elementum. In commodo nibh a felis ornare, sed feugiat dui hendrerit. Sed vestibulum ipsum vitae lectus convallis tincidunt. Suspendisse a justo vel nunc auctor sollicitudin."
+        }
+      ]
+    }
+  
+]

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{case.title}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="previous()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content  [fullscreen]="true">
+  <ion-list-header>
+    Summary
+  </ion-list-header>
+  <ion-item>
+    <p>{{case.summary}}</p>
+  </ion-item>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+      <ion-item *ngFor="let case of cases">
+        <ion-thumbnail slot="start">
+          <img src="./avatar-finn.png">
+        </ion-thumbnail>
+        <ion-label>{{ case.title }}</ion-label>
+        <ion-item col-10>{{ case.content }}</ion-item>
+        <ion-item style="text-align: right;" href="casedetail"> Read more ...</ion-item>            
+      </ion-item>
+      
+      </ion-col>
+    </ion-row>
+  </ion-grid>  
+</ion-content>

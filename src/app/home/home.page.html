@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+  <ion-searchbar showCancelButton="never" spellcheck="true" autocomplete></ion-searchbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list-header>
+    Popular Topics
+  </ion-list-header>
+  <ion-grid *ngFor="let item of featuredTopics">
+    <ion-row>
+      <ion-card href="#">
+        <ion-card-header>
+          <ion-card-title>{{ item.title }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          {{ item.content | slice : 0 : 180 }}
+        </ion-card-content>
+
+        <ion-card-subtitle>Read more ...</ion-card-subtitle>
+
+      </ion-card>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,13 @@
+[{
+  "div": {
+    "@class": "coverpage",
+    "div": {
+      "@class": "place-name",
+      "br": "",
+      "#text": [
+        "Cape Town",
+        "South Africa"
+      ]
+    }
+  }
+}]
