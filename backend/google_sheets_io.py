@@ -18,4 +18,5 @@ def fetch_csv(content_type):
         url,
         sep=","
         )
+    df = df.fillna("")
     return df 

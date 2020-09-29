@@ -1,21 +1,20 @@
 import transform
 
 def main():
-    cases()
-    topics()
+    cases = get_cases()
+    topics = get_topics()
+    transform.write_all_documents(list(cases) + list(topics))
 
-def cases():
-    all_documents = transform.read_google_sheets('cases')
-
-    for document in all_documents:
-        transform.write_dict_to_json(document['id'], document)
+def get_cases():
+    cases = transform.read_google_sheets('cases')
+    return cases 
 
 
-def topics():
-    all_documents = transform.read_google_sheets('topics')
+def get_topics():
+    topics = transform.read_google_sheets('topics')
+    return topics 
 
-    for document in all_documents:
-        transform.write_dict_to_json(document['id'], document)
+
 
 
 if __name__=="__main__":

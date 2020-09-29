@@ -4,6 +4,7 @@ import filesystem_io
 import json
 import time
 import datetime
+import settings
 
 def _excel_date_to_timestamp(date):
     result = datetime.datetime.strptime(date, "%d/%m/%Y").replace(tzinfo=datetime.timezone.utc).timestamp()
@@ -24,9 +25,8 @@ def process_topic(_dict):
             "title": _dict["title"],
             "content": _dict["content"],
             "featured": bool(_dict["featured"]),
-            "sections": str(_dict["sections"]).split(";\n"),
-            "references": _dict["cases"].split(";\n"),
-            "isBillOfRightsSection": _dict["isBillOfRightSection"]
+            "references": str(_dict["references"]).split(";\n"),
+            "cases": _dict["cases"].split(";\n"),
             }
     return _ret
 
@@ -101,6 +101,11 @@ def read_all_testing_documents():
 
 def write_dict_to_json(filename, content):
     filesystem_io.write_json(filename, content)
+
+
+def write_all_documents(all_documents):
+    filesystem_io.write_json(settings.JSON_FILENAME, all_documents)
+
 
 
 def write_testing_file(filename, content):
