@@ -1,12 +1,13 @@
-import testing_documents_io
 import google_sheets_io
-import filesystem_io 
+import filesystem_io
 import json
 import time
 import datetime
 import settings
 
+
 def _excel_date_to_timestamp(date):
+    # TODO iso 8601
     result = datetime.datetime.strptime(date, "%d/%m/%Y").replace(tzinfo=datetime.timezone.utc).timestamp()
     return int(result)
 
@@ -20,7 +21,7 @@ def explode_justices_concurring(value):
 
 def process_topic(_dict):
     _ret = {
-            "id": _dict["_id"],
+            "id": _dict["id"],
             "contentType": "Topic",
             "title": _dict["title"],
             "content": _dict["content"],
@@ -36,7 +37,7 @@ def process_case(_dict):
     It defines the logic for creating the JSON
     """
     result = {
-        "id": _dict["_id"],
+        "id": _dict["id"],
         "contentType": "Case",
         "href": _dict["href"],
         "title": _dict["title"],
@@ -74,45 +75,6 @@ def read_google_sheets(content_type):
         yield result
 
 
-def read_all_testing_documents():
-    """Read all testing documents from the filesystem and transform into a 
-    list of dictionaries
-    """
-    all_testing_filenames = testing_documents_io.fetch_all_filenames()
-
-    # Receive list of Dataframes and transform to list of dicts
-
-    all_testing_documents = [
-            json.loads(
-                testing_documents_io.fetch_xslx_file(filename
-                    ).transpose(
-                        ).to_json()
-                    )
-            for filename in all_testing_filenames
-            ]
-
-    # remove additional index that pandas inserts
-    for document in all_testing_documents:
-        for k, v in document.items():
-            document[k] = document[k]["1"]
-
-    return all_testing_documents
-
-
-def write_dict_to_json(filename, content):
-    filesystem_io.write_json(filename, content)
-
 
 def write_all_documents(all_documents):
     filesystem_io.write_json(settings.JSON_FILENAME, all_documents)
-
-
-
-def write_testing_file(filename, content):
-    raise DeprecationWarning
-    testing_documents_io.write_json(filename, content)
-
-
-def write_df_to_filesystem(df):
-    for row in df.iterrows():
-        print(type(row))
