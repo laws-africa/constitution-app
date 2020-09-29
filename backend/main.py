@@ -3,7 +3,7 @@ import transform
 def main():
     cases = get_cases()
     topics = get_topics()
-    transform.write_all_documents(list(cases) + list(topics))
+    transform.write_all_documents(cases, topics)
 
 def get_cases():
     cases = transform.read_google_sheets('cases')
