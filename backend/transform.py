@@ -27,6 +27,7 @@ def process_topic(_dict):
             "title": _dict["title"],
             "content": _dict["content"],
             "featured": bool(_dict["featured"]),
+            "highlighted": bool(_dict["highlighted"]),
             "references": str(_dict["references"]).split(";\n"),
             "cases": _dict["cases"].split(";\n"),
             }
@@ -44,6 +45,8 @@ def process_case(_dict):
         "id": _dict["id"],
         "href": _dict["href"],
         "title": _dict["title"],
+        "featured": bool(_dict["featured"]),
+        "highlighted": bool(_dict["highlighted"]),
         "dateOfJudgment": _excel_date_to_timestamp(_dict["dateOfJudgment (DD/MM/YYYY)"]),
         "courtName": _dict["courtName"],
         "topics": [
