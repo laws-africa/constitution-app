@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 
 import { ActivatedRoute } from '@angular/router';
-import * as Cases from "../../assets/data/cases.json"
+import * as Data from "../../assets/data/data.json"
 
 @Component({
   selector: 'app-casedetail',
@@ -10,14 +10,15 @@ import * as Cases from "../../assets/data/cases.json"
   styleUrls: ['./casedetail.page.scss'],
 })
 export class CaseDetailPage implements OnInit {
-  cases: any = (Cases as any).default;
-  case: { title: '', summary: ''};
+  data: any = (Data as any).default;
+  case: { title: '', summary: '', citedCases: []};
 
   constructor(private route: ActivatedRoute, private location: Location) {}
   
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.case = this.cases.find((caseObject) => caseObject.id === params['id'])
+      this.case = this.data.cases.find((caseObject) => caseObject.id === params['id'])
+      console.log(this.case.citedCases)
     });
   }
 

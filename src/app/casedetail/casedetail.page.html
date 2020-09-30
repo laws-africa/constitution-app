@@ -8,7 +8,7 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-content  [fullscreen]="true">
+<ion-content [fullscreen]="true">
   <ion-list-header>
     Summary
   </ion-list-header>
@@ -17,17 +17,20 @@
   </ion-text>
   <ion-grid>
     <ion-row>
+      <ion-label>Cited Cases</ion-label>
       <ion-col>
-      <ion-item *ngFor="let case of cases">
-        <ion-thumbnail slot="start">
-          <img src="./avatar-finn.png">
-        </ion-thumbnail>
-        <ion-label>{{ case.title }}</ion-label>
-        <ion-item col-10>{{ case.content }}</ion-item>
-        <ion-item style="text-align: right;" href="casedetail"> Read more ...</ion-item>            
-      </ion-item>
-      
+        <ion-item *ngFor="let citedCase of case.citedCases">
+          <ion-label>{{citedCase}}</ion-label>
+        </ion-item>
       </ion-col>
     </ion-row>
-  </ion-grid>  
+    <ion-row>
+      <ion-label>Linked Topics</ion-label>
+      <ion-col>
+        <ion-item *ngFor="let topic of case.topics">
+          <ion-label>{{topic}}</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
