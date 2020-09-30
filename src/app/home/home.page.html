@@ -15,7 +15,7 @@
               <ion-card-title>{{ item.title }}</ion-card-title>
             </ion-card-header>
             <ion-card-content>
-              {{ item.content | slice : 0 : 180 }}
+              {{ item.snippet }}
             </ion-card-content>
             <ion-card-subtitle>Read more...</ion-card-subtitle>
           </ion-card>
@@ -32,9 +32,7 @@
             <ion-card-header>
               <ion-card-title>{{ item.title }}</ion-card-title>
             </ion-card-header>
-            <ion-card-content>
-              {{ item.summary | slice : 0 : 180 }}
-            </ion-card-content>
+            <ion-card-content [innerHTML]="item.snippet"></ion-card-content>
             <ion-card-subtitle>Read more...</ion-card-subtitle>
           </ion-card>
         </ion-col>
