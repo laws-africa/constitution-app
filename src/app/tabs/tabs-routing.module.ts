@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CaseDetailPage } from '../casedetail/casedetail.page';
-import { TopicdetailPage } from '../topicdetail/topicdetail.page';
 import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
@@ -16,23 +14,19 @@ const routes: Routes = [
       {
         path: 'constitution',
         loadChildren: () => import('../constitution/constitution.module').then(m => m.ConstitutionPageModule)
-      }, 
+      },
       {
         path: 'home',
         loadChildren: () => import('../home/home.module').then(m => m.HomePageModule)
-      }, 
+      },
       {
         path: 'cases',
         loadChildren: () => import('../cases/cases.module').then(m => m.CasesPageModule)
-      }, 
+      },
       {
         path: 'help',
         loadChildren: () => import('../help/help.module').then(m => m.HelpPageModule)
       },
-      {
-        path: 'cases/detail/id', component: CaseDetailPage
-      },
-   
       {
         path: '',
         redirectTo: '/tabs/home',

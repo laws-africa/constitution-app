@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Data from "../../assets/data/data.json";
 import * as Cases from "../../assets/data/cases.json"
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,7 @@ export class HomePage implements OnInit {
   featuredTopics: any = [];
   featuredCases: any = [];
   
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     console.log(this.data);
@@ -21,4 +22,13 @@ export class HomePage implements OnInit {
     this.featuredCases = this.data.cases.filter((o) => o.featured === true);
   }
 
+  navigationToCaseDetails(id) {
+    this.router.navigateByUrl('/tabs/cases/detail/' + id);
+
+  }
+
+  navigationToTopicDetails(id) {
+    this.router.navigateByUrl('/tabs/topics/detail/' + id);
+
+  }
 }

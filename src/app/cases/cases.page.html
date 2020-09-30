@@ -2,7 +2,7 @@
   <ion-text class="ion-margin-bottom">
     For short summaries of cases from the Constitutional Court, please click on the case which you want to read more about.
   </ion-text>
-  <ion-card *ngFor="let case of cases" href="/tabs/cases/detail/{{case.id}}">
+  <ion-card *ngFor="let case of cases" (click)="navigateToDetails(case.id)">
     <img src="../../assets/shapes.svg">
     <ion-card-header>
       <ion-card-title>{{ case.title }}</ion-card-title>
