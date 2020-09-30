@@ -5,6 +5,7 @@ import datetime
 import pandas as pd 
 
 NUMBER_OF_TOPICS = 3
+NUMBER_OF_CASES = 4
 
 JSON_FILENAME = r'data.json'
 
@@ -40,7 +41,10 @@ def process_topic(_dict):
             "featured": bool(_dict["featured"]),
             "highlighted": bool(_dict["highlighted"]),
             "references": str(_dict["references"]).split(";\n"),
-            "cases": _dict["cases"].split(";\n"),
+            "cases": [
+                _dict["case_" + str(i+1)] for i in range(NUMBER_OF_CASES)
+                if _dict["case_" + str(i+1)] != ""
+                ],
             }
     return _ret
 
