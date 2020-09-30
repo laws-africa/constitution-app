@@ -5,6 +5,7 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
 <ion-menu side="end" menuId="first" contentId="constitution">
   <ion-header>
     <!--   <ion-toolbar>
@@ -22,4 +23,6 @@
     </ion-list>
   </ion-content>
 </ion-menu>
+
+<ion-content [innerHTML]="constitution.body"></ion-content>
 <ion-router-outlet id="constitution"></ion-router-outlet>

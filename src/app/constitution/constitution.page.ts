@@ -8,22 +8,21 @@ import * as Constitution from '../../assets/data/constitution.json';
 	styleUrls: ['./constitution.page.scss']
 })
 export class ConstitutionPage implements OnInit {
-	// toc: any = (TOC as any).default;
 	constitution: any = (Constitution as any).default;
 	navigate: any;
 
 	constructor() {
-		this.sideMenu();
+	
 	}
 
-	ngOnInit() { }
+	ngOnInit() { 	this.sideMenu();}
 
 	sideMenu() {
-		let menuList = Constitution.toc.map((menu, i) => {
+		let menuList = this.constitution.toc.map((toc, i) => {
 			return (
 				{
-					title: menu.title,
-					url: menu.url
+					title: toc.title,
+					url: toc.url
 					// icon  : "home"
 				}
 			)
