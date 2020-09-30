@@ -18,55 +18,10 @@
     <p>{{topic.content}}</p>
   </ion-item>
 
-  <ion-grid>
-    <ion-row>
-      <ion-col>
 
-        <ion-item *ngFor="let topic of topics">
-          <ion-label>{{ topic.title }}</ion-label>
-          <ion-item>{{ topic.content }}</ion-item>
-          <ion-item style="text-align: right;" href="topicdetail"> Read more ...</ion-item>
-        </ion-item>
+  <li *ngFor="let linkedCase of linkedCases">
+    {{linkedCase}}
+  </li>
 
-      </ion-col>
-    </ion-row>
-  </ion-grid>
 
-  <ion-item>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-      standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
-      type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-      remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-      Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
-      of Lorem Ipsum.
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-      standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
-      type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-      remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-      Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
-      of Lorem Ipsum.
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-      standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
-      type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-      remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-      Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
-      of Lorem Ipsum.</p>
-  </ion-item>
-
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-
-        <ion-item *ngFor="let topic of topics let i = index">
-          <ion-thumbnail slot="start" *ngIf="i<2">
-            <img src="./avatar-finn.png">
-          </ion-thumbnail>
-          <ion-label *ngIf="i<2">{{ topic.title }}</ion-label>
-          <ion-item *ngIf="i<2">{{ topic.content }}</ion-item>
-          <ion-item *ngIf="i<2" style="text-align: right;" href="topicdetail"> Read more ...</ion-item>
-        </ion-item>
-
-      </ion-col>
-    </ion-row>
-  </ion-grid>
 </ion-content>
