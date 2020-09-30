@@ -1,36 +1,13 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Topics</ion-title>
-
-  </ion-toolbar>
-</ion-header>
-
-<ion-content  [fullscreen]="true">
-  <ion-list-header>
-    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-  </ion-list-header>
-
-    <ion-card *ngFor="let topic of topics" href="/tabs/topics/detail/{{topic.id}}">
-      <ion-grid>
-        <ion-row>
-          <ion-col size="2">
-            <img src="../../assets/shapes.svg">
-          </ion-col>
-          <ion-col>
-            
-            <ion-card-header>
-
-              <ion-label>{{ topic.title }}</ion-label>
-      
-            </ion-card-header>
-              
-              
-            <ion-card-content>{{ topic.content | slice : 0 : 180 }}</ion-card-content>
-            <ion-card-subtitle> Read more ...</ion-card-subtitle>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-      
-    </ion-card>
-      
+<ion-content>
+  <ion-text class="ion-margin-bottom">
+    For legal commentary for sections and Chapters of the Constitution, please click on the topic which you want to read more about.
+  </ion-text>
+  <ion-card *ngFor="let topic of topics" href="/tabs/topics/detail/{{topic.id}}">
+    <img src="../../assets/shapes.svg">
+    <ion-card-header>
+      <ion-card-title>{{ topic.title }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>{{ topic.content | slice : 0 : 180 }}</ion-card-content>
+    <ion-card-subtitle> Read more...</ion-card-subtitle>
+  </ion-card>
 </ion-content>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as Cases from "../../assets/data/cases.json"
+import * as Data from "../../assets/data/data.json"
 
 @Component({
   selector: 'app-cases',
@@ -7,11 +7,13 @@ import * as Cases from "../../assets/data/cases.json"
   styleUrls: ['./cases.page.scss'],
 })
 export class CasesPage implements OnInit {
-  cases: any = (Cases as any).default;
+  data: any = (Data as any).default;
+  cases: [];
 
   constructor() { }
 
   ngOnInit() {
+    this.cases = this.data.cases;
   }
 
 }
