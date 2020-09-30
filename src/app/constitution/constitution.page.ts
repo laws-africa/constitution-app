@@ -19,16 +19,16 @@ export class ConstitutionPage implements OnInit {
 	ngOnInit() { }
 
 	sideMenu() {
-		// let menuList = TOC.toc.map((menu, i) => {
-		// 	return (
-		// 		{
-		// 			title: menu.title,
-		// 			url: menu.url
-		// 			// icon  : "home"
-		// 		}
-		// 	)
-		// });
+		let menuList = Constitution.toc.map((menu, i) => {
+			return (
+				{
+					title: menu.title,
+					url: menu.url
+					// icon  : "home"
+				}
+			)
+		});
 
-		// this.navigate = menuList;
+		this.navigate = menuList;
 	}
 }
