@@ -12,11 +12,14 @@ export class HomePage implements OnInit {
   cases: any = (Cases as any).default;
 
   featuredTopics: any = [];
+  featuredCases: any = [];
   
   constructor() { }
 
   ngOnInit() {
     this.featuredTopics = this.topics.filter((o) => o.featured === true);
+    this.featuredCases = this.cases.filter((o) => o.featured === true);
+
   }
 
 }

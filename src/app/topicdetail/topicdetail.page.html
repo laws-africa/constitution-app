@@ -22,13 +22,10 @@
     <ion-row>
       <ion-col>
 
-        <ion-item *ngFor="let topic of topics let i = index">
-          <ion-thumbnail slot="start" *ngIf="i<2">
-            <img src="./avatar-finn.png">
-          </ion-thumbnail>
-          <ion-label *ngIf="i<2">{{ topic.title }}</ion-label>
-          <ion-item *ngIf="i<2">{{ topic.content }}</ion-item>
-          <ion-item *ngIf="i<2" style="text-align: right;" href="topicdetail"> Read more ...</ion-item>
+        <ion-item *ngFor="let topic of topics">
+          <ion-label>{{ topic.title }}</ion-label>
+          <ion-item>{{ topic.content }}</ion-item>
+          <ion-item style="text-align: right;" href="topicdetail"> Read more ...</ion-item>
         </ion-item>
 
       </ion-col>

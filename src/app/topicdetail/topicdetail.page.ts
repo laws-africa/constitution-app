@@ -10,7 +10,7 @@ import * as Topics from "../../assets/data/topics.json"
 })
 export class TopicdetailPage implements OnInit {
   topics: any = (Topics as any).default;
-  topic: {};
+  topic: { title: '', summary: '', content: ''};
 
   constructor(private route: ActivatedRoute, private location: Location) {}
   
