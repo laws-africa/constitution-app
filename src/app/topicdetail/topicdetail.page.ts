@@ -17,10 +17,9 @@ export class TopicdetailPage implements OnInit {
   
   ngOnInit() {
     this.route.params.subscribe(params => {
-      console.log(params['id']);
       this.topic = this.data.topics.find((topic) => topic.id == params['id'])
       this.linkedCases = this.topic.cases;
-      console.log(this.linkedCases);
+
     });
   }
 

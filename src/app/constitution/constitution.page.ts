@@ -20,9 +20,7 @@ export class ConstitutionPage implements OnInit {
 	ngOnInit() { this.sideMenu(); }
 
 	scroll(id) {
-		console.log(`scrolling to ${id}`);
 		let el = document.getElementById(id);
-		console.log(el);
 		el.scrollIntoView();
 	}
 	

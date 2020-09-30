@@ -18,7 +18,6 @@ export class CaseDetailPage implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.case = this.data.cases.find((caseObject) => caseObject.id === params['id'])
-      console.log(this.case.citedCases)
     });
   }
 
