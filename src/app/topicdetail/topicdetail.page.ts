@@ -20,7 +20,7 @@ export class TopicdetailPage implements OnInit {
       console.log(params['id']);
       this.topic = this.data.topics.find((topic) => topic.id == params['id'])
       this.linkedCases = this.topic.cases;
-      console.log("linked cases", this.linkedCases)
+      console.log(this.linkedCases);
     });
   }
 

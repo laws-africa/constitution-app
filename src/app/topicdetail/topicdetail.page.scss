@@ -8,3 +8,9 @@ ion-content {
 ion-card, .card-ios, .card-md {
   margin-bottom: 20px !important;
 }
+
+ion-card-subtitle {
+	text-align: right;
+	padding-bottom: 10px;
+	padding-right: 10px;
+}

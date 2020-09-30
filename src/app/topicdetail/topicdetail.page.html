@@ -8,20 +8,19 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <ion-list-header>
-    Summary
+    <h3>Summary</h3>
   </ion-list-header>
-
   <ion-item>
-    <p>{{topic.content}}</p>
+    <p class="ion-text-justify">{{topic.content}}</p>
   </ion-item>
-
-
-  <li *ngFor="let linkedCase of linkedCases">
-    {{linkedCase}}
-  </li>
-
-
+  <ion-card *ngFor="let case of linkedCases" (click)="navigateToDetails(case.id)">
+    <img src="../../assets/shapes.svg">
+    <ion-card-header>
+        <ion-card-title>Case Title</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>{{ case | slice : 0 : 180 }}</ion-card-content>
+    <ion-card-subtitle> Read more...</ion-card-subtitle>
+  </ion-card>
 </ion-content>

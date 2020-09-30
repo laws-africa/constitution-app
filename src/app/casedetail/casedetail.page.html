@@ -1,36 +1,27 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>{{case.title}}</ion-title>
-    <ion-buttons slot="start">
-      <ion-button (click)="previous()">
-        <ion-icon name="arrow-back"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-<ion-content [fullscreen]="true">
-  <ion-list-header>
-    Summary
-  </ion-list-header>
-  <ion-text>
-    {{case.summary}}
-  </ion-text>
-  <ion-grid>
-    <ion-row>
-      <ion-label>Cited Cases</ion-label>
-      <ion-col>
-        <ion-item *ngFor="let citedCase of case.citedCases">
-          <ion-label>{{citedCase}}</ion-label>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
+    <ion-toolbar>
+      <ion-title>{{case.title}}</ion-title>
+      <ion-buttons slot="start">
+        <ion-button (click)="previous()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list-header>
+      <h3>Summary</h3>
+    </ion-list-header>
+    <ion-item>
+      <p class="ion-text-justify">{{case.summary}}</p>
       <ion-label>Linked Topics</ion-label>
-      <ion-col>
-        <ion-item *ngFor="let topic of case.topics">
-          <ion-label>{{topic}}</ion-label>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-content>
+    </ion-item>
+    <ion-card *ngFor="let topic of case.topics" (click)="navigateToDetails(topic.id)">
+      <img src="../../assets/shapes.svg">
+      <ion-card-header>
+        <ion-card-title>Topic Title</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>{{ topic | slice : 0 : 180 }}</ion-card-content>
+      <ion-card-subtitle> Read more...</ion-card-subtitle>
+    </ion-card>
+  </ion-content>
