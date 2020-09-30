@@ -7,7 +7,6 @@ import settings
 
 
 def _excel_date_to_timestamp(date):
-    # TODO iso 8601
     result = datetime.datetime.strptime(date, "%d/%m/%Y").replace(tzinfo=datetime.timezone.utc).isoformat()
     return result
 
