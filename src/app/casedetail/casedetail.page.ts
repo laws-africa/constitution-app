@@ -11,7 +11,7 @@ import * as Data from "../../assets/data/data.json"
 })
 export class CaseDetailPage implements OnInit {
   data: any = (Data as any).default;
-  case: { title: '', summary: '', citedCases: []};
+  case: { title: '', summary: '', citedCases: [], topics: []};
 
   constructor(private route: ActivatedRoute, private location: Location) {}
   
