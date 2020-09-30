@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as Topics from "../../assets/data/topics.json"
+import * as Data from "../../assets/data/data.json"
 
 @Component({
   selector: 'app-topics',
@@ -7,11 +7,12 @@ import * as Topics from "../../assets/data/topics.json"
   styleUrls: ['./topics.page.scss'],
 })
 export class TopicsPage implements OnInit {
-  topics: any = (Topics as any).default;
-
+  data: any = (Data as any).default;
+  topics: [];
   constructor() { }
 
   ngOnInit() {
+    this.topics = this.data.topics;
   }
 
 }
