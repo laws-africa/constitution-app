@@ -7,18 +7,18 @@
 </ion-header>
 
 <ion-menu side="end" menuId="first" contentId="constitution">
-  <ion-header>
-    <!--   <ion-toolbar>
-      <ion-title>Index</ion-title>
-    </ion-toolbar> -->
-  </ion-header>
+
   <ion-content>
     <ion-list *ngFor="let page of navigate">
       <ion-menu-toggle auto-hide="true">
         <ion-item (click)="scroll(page.id)">
-          <!-- <ion-icon [name]="pages.icon" slot="end"></ion-icon> -->
-          {{ page.title }}
+          {{ page.title }}       
         </ion-item>
+        <ion-list *ngFor="let child of page.children">
+          <ion-item (click)="scroll(child.id)">
+            &nbsp;&nbsp;&nbsp;{{ child.title }}
+          </ion-item>
+      </ion-list>
       </ion-menu-toggle>
     </ion-list>
   </ion-content>

@@ -31,8 +31,8 @@ export class ConstitutionPage implements OnInit {
 			return (
 				{
 					title: toc.title,
-					id: toc.id
-					// icon  : "home"
+					id: toc.id,
+					children: toc.children
 				}
 			)
 		});
