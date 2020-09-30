@@ -28,3 +28,12 @@ ion-content {
 ion-card, .card-ios, .card-md {
   margin-bottom: 20px !important;
 }
+
+ion-card-header {
+	color: #fff;
+	padding-top: 0;
+}
+
+ion-card-title {
+	font-size: 18px;
+}

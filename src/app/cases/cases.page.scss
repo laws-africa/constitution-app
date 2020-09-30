@@ -4,6 +4,7 @@ ion-item {
 	margin-right: 0 !important;
 	margin-top: 10px;
 }
+
 ion-card-subtitle {
 	text-align: right;
 	padding-bottom: 10px;
@@ -14,7 +15,7 @@ ion-label {
 }
 img {
 	width: 100%;
-	height: auto;;
+	height: auto;
 }
 
 ion-content {
@@ -26,6 +27,13 @@ ion-content {
 
 ion-card, .card-ios, .card-md {
   margin-bottom: 20px !important;
-  }
+}
 
+ion-card-header {
+	color: #fff;
+	padding-top: 0;
+}
 
+ion-card-title {
+	font-size: 18px;
+}
