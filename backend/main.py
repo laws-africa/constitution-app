@@ -41,6 +41,7 @@ def process_topic(_dict):
             "featured": bool(_dict["featured"]),
             "highlighted": bool(_dict["highlighted"]),
             "references": str(_dict["references"]).split(";\n"),
+            "snippet": _dict["snippet"],
             "cases": [
                 _dict["case_" + str(i+1)] for i in range(NUMBER_OF_CASES)
                 if _dict["case_" + str(i+1)] != ""
