@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import * as Constitution from '../../assets/data/constitution.json';
 // import * as TOC from '../../assets/data/toc.json';
 
@@ -10,19 +11,27 @@ import * as Constitution from '../../assets/data/constitution.json';
 export class ConstitutionPage implements OnInit {
 	constitution: any = (Constitution as any).default;
 	navigate: any;
+	newContent:any;
 
-	constructor() {
-	
+	constructor(private sanitized: DomSanitizer) { 
+		this.newContent = this.sanitized.bypassSecurityTrustHtml(this.constitution.body)
 	}
 
-	ngOnInit() { 	this.sideMenu();}
+	ngOnInit() { this.sideMenu(); }
 
+	scroll(id) {
+		console.log(`scrolling to ${id}`);
+		let el = document.getElementById(id);
+		console.log(el);
+		el.scrollIntoView();
+	}
+	
 	sideMenu() {
 		let menuList = this.constitution.toc.map((toc, i) => {
 			return (
 				{
 					title: toc.title,
-					url: toc.url
+					id: toc.id
 					// icon  : "home"
 				}
 			)
