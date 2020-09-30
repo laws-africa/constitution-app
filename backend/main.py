@@ -34,7 +34,7 @@ def _excel_date_to_timestamp(date):
 def process_topic(_dict):
     if _dict["content"] == "":
         return None
-    _ret = (_dict["id"], {
+    _ret = {
             "id": _dict["id"],
             "title": _dict["title"],
             "content": _dict["content"],
@@ -46,7 +46,7 @@ def process_topic(_dict):
                 _dict["case_" + str(i+1)] for i in range(NUMBER_OF_CASES)
                 if _dict["case_" + str(i+1)] != ""
                 ],
-            })
+            }
     return _ret
 
 
@@ -54,8 +54,7 @@ def process_case(_dict):
     """This function is the main machinery of the translation between csv and json. 
     It defines the logic for creating the JSON
     """
-    result = (
-         _dict["id"], {
+    result = {
             "id": _dict["id"],
             "href": _dict["href"],
             "title": _dict["title"],
@@ -74,7 +73,7 @@ def process_case(_dict):
             "decision": _dict["decision"],
             "dissent": _dict["dissent"],
             "citedCases": _dict["citedCases"].split(";\n") # TODO: put in a function
-        })
+        }
     return result
 
 
@@ -106,10 +105,11 @@ def write_all_documents(cases, topics):
     write_json(
             JSON_FILENAME, 
             {
-                "cases": {case[0]: case[1] for case in cases},
-                "topics": {topic[0]: topic[1] for topic in topics}
+                "cases": list(cases),
+                "topics": list(topics)
                 }
             )
+
 
 def fetch_csv(content_type):
     if content_type == "cases":
