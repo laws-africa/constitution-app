@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as Data from "../../assets/data/data.json"
 @Component({
   selector: 'app-topicdetail',
@@ -13,7 +13,7 @@ export class TopicdetailPage implements OnInit {
   topic: { title: '', summary: '', content: '', cases: []};
   linkedCases: [];
 
-  constructor(private route: ActivatedRoute, private location: Location) {}
+  constructor(private router: Router, private route: ActivatedRoute, private location: Location) {}
   
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -26,5 +26,10 @@ export class TopicdetailPage implements OnInit {
 
   previous() {
     this.location.back();
+  }
+
+ 
+  navigateToDetails(id: any) {
+    this.router.navigateByUrl('tabs/cases/detail/' + id);
   }
 }
