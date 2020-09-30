@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as Constitution from '../../assets/data/constitution.json';
-import * as TOC from '../../assets/data/toc.json';
+// import * as TOC from '../../assets/data/toc.json';
 
 @Component({
 	selector: 'app-constitution',
@@ -8,7 +8,7 @@ import * as TOC from '../../assets/data/toc.json';
 	styleUrls: ['./constitution.page.scss']
 })
 export class ConstitutionPage implements OnInit {
-	toc: any = (TOC as any).default;
+	// toc: any = (TOC as any).default;
 	constitution: any = (Constitution as any).default;
 	navigate: any;
 
@@ -19,16 +19,16 @@ export class ConstitutionPage implements OnInit {
 	ngOnInit() { }
 
 	sideMenu() {
-		let menuList = TOC.toc.map((menu, i) => {
-			return (
-				{
-					title: menu.title,
-					url: menu.url
-					// icon  : "home"
-				}
-			)
-		});
+		// let menuList = TOC.toc.map((menu, i) => {
+		// 	return (
+		// 		{
+		// 			title: menu.title,
+		// 			url: menu.url
+		// 			// icon  : "home"
+		// 		}
+		// 	)
+		// });
 
-		this.navigate = menuList;
+		// this.navigate = menuList;
 	}
 }
