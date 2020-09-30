@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as Date from "../../../backend/JSON/data.json";
+import * as Data from "../../assets/data/data.json";
 import * as Cases from "../../assets/data/cases.json"
 
 @Component({
@@ -8,8 +8,7 @@ import * as Cases from "../../assets/data/cases.json"
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-  data: any = (Date as any).default;
-  cases: any = (Cases as any).default;
+  data: any = (Data as any).default;
 
   featuredTopics: any = [];
   featuredCases: any = [];
@@ -17,10 +16,9 @@ export class HomePage implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.data)
+    console.log(this.data);
     this.featuredTopics = this.data.topics.filter((o) => o.featured === true);
     this.featuredCases = this.data.cases.filter((o) => o.featured === true);
-
   }
 
 }
