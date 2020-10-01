@@ -21,7 +21,7 @@
   </ion-card>
   <ion-title>More Topics</ion-title>
   <ion-content>
-    <ion-row class="test" *ngFor="let topic of topics" (click)="navigateToDetails(topic.id)">
+    <ion-row class="more-topics-list" *ngFor="let topic of topics" (click)="navigateToDetails(topic.id)">
       <ion-text>{{ topic.title }}: {{topic.snippet}}</ion-text>
     </ion-row>
   </ion-content>
