@@ -13,12 +13,14 @@ export class HomePage implements OnInit {
 
   featuredTopics: any = [];
   featuredCases: any = [];
+  highlights: any = [];
   
   constructor(private router: Router) { }
 
   ngOnInit() {
     this.featuredTopics = this.data.topics.filter((o) => o.featured === true);
     this.featuredCases = this.data.cases.filter((o) => o.featured === true);
+    this.highlights = this.data.topics.filter((o) => o.highlighted === true)
   }
 
   navigationToCaseDetails(id) {
