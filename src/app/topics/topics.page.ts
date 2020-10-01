@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as Topics from "../../assets/data/topics.json"
+import { Router } from '@angular/router';
+import * as Data from "../../assets/data/data.json"
 
 @Component({
   selector: 'app-topics',
@@ -7,11 +8,18 @@ import * as Topics from "../../assets/data/topics.json"
   styleUrls: ['./topics.page.scss'],
 })
 export class TopicsPage implements OnInit {
-  topics: any = (Topics as any).default;
-
-  constructor() { }
+  data: any = (Data as any).default;
+  topics: [];
+  initialTopics = [];
+  
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    this.initialTopics = this.data.topics.slice(0, 9);
+    this.topics = this.data.topics.slice(9, this.data.topics.length);;
   }
 
+  navigateToDetails(id: any) {
+    this.router.navigateByUrl('tabs/topics/detail/' + id);
+  }
 }

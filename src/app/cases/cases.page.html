@@ -1,30 +1,21 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Cases</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content  [fullscreen]="true">
-  <ion-list-header>
-    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-  </ion-list-header>
-
-    <ion-card *ngFor="let case of cases" href="/tabs/cases/detail/{{case.id}}">
+<ion-content>
+    <ion-text class="ion-margin-bottom">
+      For short summaries of cases from the Constitutional Court, please click on the case which you want to read more about.
+    </ion-text>
+    <ion-card *ngFor="let case of cases" (click)="navigateToDetails(case.id)">
       <ion-grid>
         <ion-row>
-          <ion-col size="2">
+          <ion-col size="3">
             <img src="../../assets/shapes.svg">
           </ion-col>
-          <ion-col>
+          <ion-col size="9">
             <ion-card-header>
-              <ion-label>{{ case.title }}</ion-label>
+              <ion-card-title>{{ case.title }}</ion-card-title>
             </ion-card-header>
-            <ion-card-content>{{ case.summary | slice : 0 : 180 }} ... </ion-card-content>
-            <ion-card-subtitle> Read more ...</ion-card-subtitle>
+            <ion-card-content [innerHTML]="case.snippet"></ion-card-content>
+            <ion-card-subtitle> Read more...</ion-card-subtitle>
           </ion-col>
         </ion-row>
       </ion-grid>
-      
     </ion-card>
-      
-</ion-content>
+  </ion-content>

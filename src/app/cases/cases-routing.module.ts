@@ -11,7 +11,7 @@ const routes: Routes = [
   },
   {
     path: 'detail/:id',
-    component: CaseDetailPage
+    loadChildren: () => import('../casedetail/casedetail.module').then((m) => m.CaseDetailPageModule)
   }
 ];
 

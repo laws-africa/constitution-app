@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import * as Constitution from '../../assets/data/constitution.json';
-import * as TOC from '../../assets/data/toc.json';
+// import * as TOC from '../../assets/data/toc.json';
 
 @Component({
 	selector: 'app-constitution',
@@ -8,23 +9,28 @@ import * as TOC from '../../assets/data/toc.json';
 	styleUrls: ['./constitution.page.scss']
 })
 export class ConstitutionPage implements OnInit {
-	toc: any = (TOC as any).default;
 	constitution: any = (Constitution as any).default;
 	navigate: any;
+	newContent:any;
 
-	constructor() {
-		this.sideMenu();
+	constructor(private sanitized: DomSanitizer) { 
+		this.newContent = this.sanitized.bypassSecurityTrustHtml(this.constitution.body)
 	}
 
-	ngOnInit() { }
+	ngOnInit() { this.sideMenu(); }
 
+	scroll(id) {
+		let el = document.getElementById(id);
+		el.scrollIntoView();
+	}
+	
 	sideMenu() {
-		let menuList = TOC.toc.map((menu, i) => {
+		let menuList = this.constitution.toc.map((toc, i) => {
 			return (
 				{
-					title: menu.title,
-					url: menu.url
-					// icon  : "home"
+					title: toc.title,
+					id: toc.id,
+					children: toc.children
 				}
 			)
 		});

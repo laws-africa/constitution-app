@@ -1,28 +1,29 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-      <ion-buttons slot="end">
+    <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-    <ion-title>
-      Contitution
-    </ion-title>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
 <ion-menu side="end" menuId="first" contentId="constitution">
-  <ion-header>
-  <!--   <ion-toolbar>
-      <ion-title>Index</ion-title>
-    </ion-toolbar> -->
-  </ion-header>
+
   <ion-content>
-    <ion-list *ngFor="let pages of navigate">
-    <ion-menu-toggle auto-hide="true">
-      <ion-item [routerLink]="pages.url" routerDirection="forward">
-          <!-- <ion-icon [name]="pages.icon" slot="end"></ion-icon> -->
-             {{ pages.title }} 
-      </ion-item>
-    </ion-menu-toggle>
+    <ion-list *ngFor="let page of navigate">
+      <ion-menu-toggle auto-hide="true">
+        <ion-item (click)="scroll(page.id)">
+          {{ page.title }}       
+        </ion-item>
+        <ion-list *ngFor="let child of page.children">
+          <ion-item (click)="scroll(child.id)">
+            &nbsp;&nbsp;&nbsp;{{ child.title }}
+          </ion-item>
+      </ion-list>
+      </ion-menu-toggle>
     </ion-list>
   </ion-content>
 </ion-menu>
 <ion-router-outlet id="constitution"></ion-router-outlet>
+<ion-content>
+<div class="akoma-ntoso" [innerHTML]="newContent"></div>
+</ion-content>

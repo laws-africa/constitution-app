@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as Cases from "../../assets/data/cases.json"
+import { ActivatedRoute, Router } from '@angular/router';
+import * as Data from "../../assets/data/data.json"
 
 @Component({
   selector: 'app-cases',
@@ -7,11 +8,16 @@ import * as Cases from "../../assets/data/cases.json"
   styleUrls: ['./cases.page.scss'],
 })
 export class CasesPage implements OnInit {
-  cases: any = (Cases as any).default;
+  data: any = (Data as any).default;
+  cases: [];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    this.cases = this.data.cases;
   }
 
+  navigateToDetails(id: any) {
+    this.router.navigateByUrl('tabs/cases/detail/' + id);
+  }
 }
