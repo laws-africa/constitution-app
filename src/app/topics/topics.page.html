@@ -1,8 +1,9 @@
 <ion-content>
   <ion-text class="ion-margin-bottom">
-    For legal commentary for sections and Chapters of the Constitution, please click on the topic which you want to read more about.
+    For legal commentary for sections and Chapters of the Constitution, please click on the topic which you want to read
+    more about.
   </ion-text>
-  <ion-card *ngFor="let topic of topics" (click)="navigateToDetails(topic.id)">
+  <ion-card *ngFor="let topic of initialTopics" (click)="navigateToDetails(topic.id)">
     <ion-grid>
       <ion-row>
         <ion-col size="3">
@@ -18,4 +19,10 @@
       </ion-row>
     </ion-grid>
   </ion-card>
+  <ion-title>More Topics</ion-title>
+  <ion-content>
+    <ion-row class="test" *ngFor="let topic of topics" (click)="navigateToDetails(topic.id)">
+      <ion-text>{{ topic.title }}: {{topic.snippet}}</ion-text>
+    </ion-row>
+  </ion-content>
 </ion-content>

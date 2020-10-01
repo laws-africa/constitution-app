@@ -10,11 +10,13 @@ import * as Data from "../../assets/data/data.json"
 export class TopicsPage implements OnInit {
   data: any = (Data as any).default;
   topics: [];
+  initialTopics = [];
   
   constructor(private router: Router) { }
 
   ngOnInit() {
-    this.topics = this.data.topics;
+    this.initialTopics = this.data.topics.slice(0, 9);
+    this.topics = this.data.topics.slice(9, this.data.topics.length);;
   }
 
   navigateToDetails(id: any) {
