@@ -1,7 +1,16 @@
-import transform
 import requests
-import filesystem_io
 import os
+import pandas as pd
+import datetime
+import json
+
+
+JSON_FILENAME = r'data.json'
+GOOGLE_SHEETS_CASES_URL = r'https://docs.google.com/spreadsheets/d/e/2PACX-1vQo8vfq0cVnNmNs8XBXtkQzWdcL-dFDQAmoXhMrfv-L-5SaitTcADF-vI5i6DWYIKZ3eEZbLiu72x42/pub?gid=0&single=true&output=csv'
+NUMBER_OF_CASES = 3
+NUMBER_OF_TOPICS = 3
+GOOGLE_SHEETS_SECTIONS_URL = r'https://docs.google.com/spreadsheets/d/e/2PACX-1vQo8vfq0cVnNmNs8XBXtkQzWdcL-dFDQAmoXhMrfv-L-5SaitTcADF-vI5i6DWYIKZ3eEZbLiu72x42/pub?gid=721746947&single=true&output=csv'
+PRODUCTION_DOCUMENTS_OUTPUT_PATH = r'JSON'
 
 
 # Get your auth token from https://edit.laws.africa/accounts/profile/api/
@@ -18,7 +27,7 @@ def write_constitution():
     resp = requests.get('https://api.laws.africa/v2/akn/za/act/1996/constitution.html', headers=headers)
     resp.raise_for_status()
     data['body'] = resp.text
-    filesystem_io.write_json('constitution.json', data)
+    write_json('constitution.json', data)
 
 
 def main():
@@ -49,6 +58,7 @@ def process_topic(_dict):
                 if _dict["case_" + str(i+1)] != ""
                 ],
             }
+
     return _ret
 
 
@@ -100,6 +110,7 @@ def read_google_sheets(content_type):
             continue
 
         yield result
+
 
 def write_all_documents(cases, topics):
     write_json(
