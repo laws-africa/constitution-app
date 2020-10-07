@@ -23,9 +23,9 @@
         </ion-col>
         <ion-col size="9">
           <ion-card-header>
-            <ion-card-title>Case title</ion-card-title>
+            <ion-card-title>{{case.title}}</ion-card-title>
           </ion-card-header>
-          <ion-card-content [innerHTML]="case"></ion-card-content>
+          <ion-card-content [innerHTML]="case.snippet"></ion-card-content>
           <ion-card-subtitle> Read more...</ion-card-subtitle>
         </ion-col>
       </ion-row>

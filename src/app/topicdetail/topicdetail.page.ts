@@ -19,7 +19,9 @@ export class TopicdetailPage implements OnInit {
     this.route.params.subscribe(params => {
       this.topic = this.data.topics.find((topic) => topic.id == params['id'])
       this.linkedCases = this.topic.cases;
-
+      for(const caseId of this.topic.cases) {
+        this.linkedCases.push(this.topic.cases.find(({id}) => id === caseId));
+      }
     });
   }
 
