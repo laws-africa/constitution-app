@@ -14,7 +14,7 @@ export class HomePage implements OnInit {
   featuredTopics: any = [];
   featuredCases: any = [];
   highlights: any = [];
-  
+
   constructor(private router: Router) { }
 
   ngOnInit() {
@@ -23,9 +23,12 @@ export class HomePage implements OnInit {
     this.highlights = this.data.topics.filter((o) => o.highlighted === true)
   }
 
+  search(term: String) {
+    
+  }
+
   navigationToCaseDetails(id) {
     this.router.navigateByUrl('/tabs/cases/detail/' + id);
-
   }
 
   navigationToTopicDetails(id) {
