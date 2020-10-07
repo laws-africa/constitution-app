@@ -1,6 +1,6 @@
 <ion-header>
     <ion-toolbar>
-      <ion-searchbar placeholder="Find topics, cases or sections..." showCancelButton="never" spellcheck="true" autocomplete></ion-searchbar>
+      <ion-searchbar placeholder="Find topics, cases or sections..." showCancelButton="never" (change)="search($event)" spellcheck="true" autocomplete></ion-searchbar>
     </ion-toolbar>
   </ion-header>
   <ion-content [fullscreen]="true">

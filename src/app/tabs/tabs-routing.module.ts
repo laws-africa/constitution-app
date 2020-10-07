@@ -28,6 +28,10 @@ const routes: Routes = [
         loadChildren: () => import('../help/help.module').then(m => m.HelpPageModule)
       },
       {
+        path: 'results/:term',
+        loadChildren: () => import('../results/results.module').then( m => m.ResultsPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full'

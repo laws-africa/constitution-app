@@ -16,17 +16,17 @@
       <p class="ion-text-justify" [innerHTML]="case.summary"></p>
       <ion-label>Linked Topics</ion-label>
     </ion-item>
-    <ion-card *ngFor="let topic of case.topics" (click)="navigateToDetails(topic.id)">
+    <ion-card *ngFor="let topic of relatedTopics" (click)="navigateToDetails(topic.id)">
       <ion-grid>
         <ion-row>
           <ion-col size="3">
-            <img src="../../assets/shapes.svg">
+            <img src="../../assets/images/{{topic.id}}.svg" onerror="this.src='../../assets/shapes.svg'">
           </ion-col>
           <ion-col size="9">
             <ion-card-header>
-              <ion-card-title>Topic title</ion-card-title>
+              <ion-card-title>{{ topic.title }}</ion-card-title>
             </ion-card-header>
-            <ion-card-content [innerHTML]="topic"></ion-card-content>
+            <ion-card-content [innerHTML]="topic.snippet"></ion-card-content>
             <ion-card-subtitle> Read more...</ion-card-subtitle>
           </ion-col>
         </ion-row>

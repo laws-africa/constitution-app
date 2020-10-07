@@ -23,8 +23,9 @@ export class HomePage implements OnInit {
     this.highlights = this.data.topics.filter((o) => o.highlighted === true)
   }
 
-  search(term: String) {
-    
+  search(event) {
+    console.log(event.target.value)
+    this.router.navigateByUrl('/tabs/results/' + event.target.value);
   }
 
   navigationToCaseDetails(id) {
