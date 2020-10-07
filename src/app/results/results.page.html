@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Search results for "{{term}}"</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="previous()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card *ngFor="let case of cases" (click)="navigateCaseToDetails(case.id)">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="3">
+          <img src="../../assets/images/{{case.id}}.svg" onerror="this.src='../../assets/shapes.svg'"> </ion-col>
+        <ion-col size="9">
+          <ion-card-header>
+            <ion-card-title>{{ case.title }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content [innerHTML]="case.snippet"></ion-card-content>
+          <ion-card-subtitle> Read more...</ion-card-subtitle>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  <ion-card *ngFor="let topic of topics" (click)="navigateTopicToDetails(topic.id)">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="3">
+          <img src="../../assets/images/{{topic.id}}.svg" onerror="this.src='../../assets/shapes.svg'"> </ion-col>
+        <ion-col size="9">
+          <ion-card-header>
+            <ion-card-title>{{ topic.title }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content [innerHTML]="topic.snippet"></ion-card-content>
+          <ion-card-subtitle> Read more...</ion-card-subtitle>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-content>
