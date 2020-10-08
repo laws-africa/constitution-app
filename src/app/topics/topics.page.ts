@@ -15,7 +15,7 @@ export class TopicsPage implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    this.initialTopics = this.data.topics.slice(0, 10);
+    this.initialTopics = this.data.topics;
     this.topics = this.data.topics.slice(10, this.data.topics.length);;
   }
 
