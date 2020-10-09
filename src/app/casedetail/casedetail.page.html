@@ -1,35 +1,34 @@
 <ion-header>
-    <ion-toolbar>
-      <ion-title>{{case.title}}</ion-title>
-      <ion-buttons slot="start">
-        <ion-button (click)="previous()">
-          <ion-icon name="arrow-back"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
-    <ion-list-header>
-      <h3>{{case.title}}</h3>
-    </ion-list-header>
+  <ion-toolbar>
+    <ion-title>{{case.title}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="previous()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list-header>
+    <h3>{{case.title}}</h3>
+  </ion-list-header>
+  <ion-item>
+    <p [innerHTML]="case.summary"></p>
+  </ion-item>
+  <ion-text>
+    <div class="ion-padding">
+      Releated Topics
+    </div>
+  </ion-text>
+  <ion-list *ngFor="let topic of relatedTopics" (click)="navigateToDetails(topic.id)">
     <ion-item>
-      <p class="ion-text-justify" [innerHTML]="case.summary"></p>
-      <ion-label>Linked Topics</ion-label>
+      <ion-thumbnail slot="start">
+        <img src="../../assets/images/{{topic.id}}.svg" onerror="this.src='../../assets/shapes.svg'">
+      </ion-thumbnail>
+      <ion-label>
+        <h3>{{ topic.title }}</h3>
+        <p [innerHTML]="topic.snippet"></p>
+      </ion-label>
     </ion-item>
-    <ion-card *ngFor="let topic of relatedTopics" (click)="navigateToDetails(topic.id)">
-      <ion-grid>
-        <ion-row>
-          <ion-col size="3">
-            <img src="../../assets/images/{{topic.id}}.svg" onerror="this.src='../../assets/shapes.svg'">
-          </ion-col>
-          <ion-col size="9">
-            <ion-card-header>
-              <ion-card-title>{{ topic.title }}</ion-card-title>
-            </ion-card-header>
-            <ion-card-content [innerHTML]="topic.snippet"></ion-card-content>
-            <ion-card-subtitle> Read more...</ion-card-subtitle>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-card>
-  </ion-content>
+  </ion-list>
+</ion-content>
