@@ -13,21 +13,19 @@
     <h3>Summary</h3>
   </ion-list-header>
   <ion-item>
-    <p class="ion-text-justify" [innerHTML]="topic.content"></p>
+    <p [innerHTML]="topic.content"></p>
   </ion-item>
-  <ion-card *ngFor="let case of linkedCases" (click)="navigateToDetails(case.id)">
-    <ion-grid>
-      <ion-row>
-        <ion-col size="3">
-          <img src="../../assets/images/{{case.id}}.svg" onerror="this.src='../../assets/shapes.svg'"> </ion-col>
-        <ion-col size="9">
-          <ion-card-header>
-            <ion-card-title>{{case.title}}</ion-card-title>
-          </ion-card-header>
-          <ion-card-content [innerHTML]="case.snippet"></ion-card-content>
-          <ion-card-subtitle> Read more...</ion-card-subtitle>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
+  <ion-text *ngIf="linkedCases.length > 0">
+    <div class="ion-padding">
+      Related Cases
+    </div>
+  </ion-text>
+  <ion-list *ngFor="let case of linkedCases" (click)="navigateToDetails(case.id)">
+    <ion-item>
+      <ion-label>
+        <h3>{{ case.title }}</h3>
+        <p [innerHTML]="case.snippet"></p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
