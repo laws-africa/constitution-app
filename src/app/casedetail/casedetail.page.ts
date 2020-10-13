@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
-import * as Data from "../../assets/data/data.json"
+import { NavController } from '@ionic/angular';
+import * as Data from '../../assets/data/data.json';
 
 @Component({
   selector: 'app-casedetail',
@@ -13,28 +14,26 @@ export class CaseDetailPage implements OnInit {
   case: { title: '', summary: '', citedCases: [], topics: [] };
   relatedTopics = [];
 
-  constructor(private router: Router, private route: ActivatedRoute, private location: Location) { }
+  constructor(private router: Router,
+              private route: ActivatedRoute,
+              private navCtrl: NavController,
+              private location: Location) { }
 
   ngOnInit() {
     const topics: [] = this.data.topics;
 
     this.relatedTopics = [];
-  
+
     this.route.params.subscribe(params => {
-      this.case = this.data.cases.find((caseObject) => caseObject.id === params['id'])
-      for(const topicId of this.case.topics) {
+      this.case = this.data.cases.find((caseObject) => caseObject.id === params.id);
+
+      for (const topicId of this.case.topics) {
         this.relatedTopics.push(topics.find(({id}) => id === topicId));
       }
     });
-
-    console.log(this.relatedTopics);
-  }
-
-  previous() {
-    this.location.back();
   }
 
   navigateToDetails(id: any) {
-    this.router.navigateByUrl('tabs/topics/detail/' + id);
+    this.navCtrl.navigateForward('tabs/topics/detail/' + id);
   }
 }

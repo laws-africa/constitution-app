@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-
 import { ActivatedRoute, Router } from '@angular/router';
-import * as Data from "../../assets/data/data.json"
+import { NavController } from '@ionic/angular';
+import * as Data from '../../assets/data/data.json';
+
 @Component({
   selector: 'app-topicdetail',
   templateUrl: './topicdetail.page.html',
@@ -11,28 +12,29 @@ import * as Data from "../../assets/data/data.json"
 export class TopicdetailPage implements OnInit {
   data: any = (Data as any).default;
   topic: { title: '', summary: '', content: '', cases: []};
-  linkedCases: [];
+  linkedCases: [] = [];
 
-  constructor(private router: Router, private route: ActivatedRoute, private location: Location) {}
-  
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private navCtrl: NavController,
+    private location: Location) {}
+
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.topic = this.data.topics.find((topic) => topic.id == params['id'])
-    
-      for(const caseId of this.topic.cases) {
-        this.linkedCases.push(this.topic.cases.find(({id}) => id === caseId));
+      this.topic = this.data.topics.find((topic) => topic.id === params.id);
+
+      for (const caseId of this.topic.cases) {
+        const linkedCase = this.topic.cases.find((id) => id === caseId);
+
+        if (linkedCase) {
+          this.linkedCases.push(linkedCase);
+        }
       }
     });
-    
-    console.log(this.linkedCases)
   }
 
-  previous() {
-    this.location.back();
-  }
-
- 
   navigateToDetails(id: any) {
-    this.router.navigateByUrl('tabs/cases/detail/' + id);
+    this.navCtrl.navigateForward('tabs/cases/detail/' + id);
   }
 }

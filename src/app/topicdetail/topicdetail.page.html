@@ -1,11 +1,9 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>{{topic.title}}</ion-title>
     <ion-buttons slot="start">
-      <ion-button (click)="previous()">
-        <ion-icon name="arrow-back"></ion-icon>
-      </ion-button>
+      <ion-back-button></ion-back-button>
     </ion-buttons>
+    <ion-title>{{topic.title}}</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -15,6 +13,7 @@
   <ion-item>
     <p [innerHTML]="topic.content"></p>
   </ion-item>
+  {{linkedCases.length}}
   <ion-text *ngIf="linkedCases.length > 0">
     <div class="ion-padding">
       Related Cases
