@@ -22,13 +22,14 @@ export class CaseDetailPage implements OnInit {
   ngOnInit() {
     const topics: [] = this.data.topics;
 
-    this.relatedTopics = [];
+    // this.relatedTopics = [];
 
     this.route.params.subscribe(params => {
-      this.case = this.data.cases.find((caseObject) => caseObject.id === params.id);
+      this.case = this.data.cases.find((caseObject) => caseObject.id === params['id']);
 
       for (const topicId of this.case.topics) {
-        this.relatedTopics.push(topics.find(({id}) => id === topicId));
+        const topic = topics.find(({id}) => id === topicId)
+        if(topic) this.relatedTopics.push(topic);
       }
     });
   }

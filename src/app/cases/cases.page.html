@@ -10,7 +10,7 @@
       about.
     </div>
   </ion-text>
-  <ion-list *ngFor="let case of cases" (click)="navigateToDetails(case.id)">
+  <ion-list *ngFor="let case of cases" [routerLink]="['detail', case.id]">
     <ion-item>
       <ion-label>
         <h3>{{ case.title }}</h3>
