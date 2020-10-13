@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: TopicdetailPage
-  }
+  },
+  // {
+  //   path: 'cases/detail/:id',
+  //   loadChildren: () => import('../casedetail/casedetail.module').then((m) => m.CaseDetailPageModule)
+  // }
 ];
 
 @NgModule({

@@ -18,7 +18,7 @@
       Related Topics
     </div>
   </ion-text>
-  <ion-list *ngFor="let topic of relatedTopics" (click)="navigateToDetails(topic.id)">
+  <ion-list *ngFor="let topic of relatedTopics" [routerLink]="['topics/detail', topic.id]">
     <ion-item>
       <ion-thumbnail slot="start">
         <img src="../../assets/images/{{topic.id}}.svg" onerror="this.src='../../assets/shapes.svg'">

@@ -21,20 +21,14 @@ export class TopicdetailPage implements OnInit {
     private location: Location) {}
 
   ngOnInit() {
+    console.log(this.navCtrl);
     this.route.params.subscribe(params => {
       this.topic = this.data.topics.find((topic) => topic.id === params.id);
 
       for (const caseId of this.topic.cases) {
         const linkedCase = this.topic.cases.find((id) => id === caseId);
-
-        if (linkedCase) {
-          this.linkedCases.push(linkedCase);
-        }
+        this.linkedCases.push(linkedCase);
       }
     });
-  }
-
-  navigateToDetails(id: any) {
-    this.navCtrl.navigateForward('tabs/cases/detail/' + id);
   }
 }

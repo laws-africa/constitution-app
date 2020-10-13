@@ -32,8 +32,4 @@ export class CaseDetailPage implements OnInit {
       }
     });
   }
-
-  navigateToDetails(id: any) {
-    this.navCtrl.navigateForward('tabs/topics/detail/' + id);
-  }
 }
