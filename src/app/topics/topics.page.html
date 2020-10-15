@@ -11,8 +11,8 @@
       more about.
     </div>
   </ion-text>
-  <ion-list *ngFor="let topic of initialTopics"  [routerLink]="['detail', topic.id]">
-    <ion-item>
+  <ion-list>
+    <ion-item *ngFor="let topic of topics"  [routerLink]="['detail', topic.id]">
       <ion-thumbnail slot="start">
         <img src="../../assets/images/{{topic.id}}.svg" onerror="this.src='../../assets/shapes.svg'">
       </ion-thumbnail>
@@ -22,37 +22,4 @@
       </ion-label>
     </ion-item>
   </ion-list>
-  <ion-text>
-    <div class="ion-padding">
-      More Topics
-    </div>
-  </ion-text>
-  <ion-list *ngFor="let topic of topics" (click)="navigateToDetails(topic.id)">
-    <ion-item>
-      <ion-label>
-        <h3>{{ topic.title }}</h3>
-        <p [innerHTML]="topic.snippet"></p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
-  <!-- <ion-card *ngFor="let topic of initialTopics" (click)="navigateToDetails(topic.id)">
-    <ion-grid>
-      <ion-row>
-        <ion-col size="3">
-        </ion-col>
-        <ion-col size="9">
-          <ion-card-header>
-            <ion-card-title>{{ topic.title }}</ion-card-title>
-          </ion-card-header>
-          <ion-card-content [innerHTML]="topic.snippet"></ion-card-content>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
-  <ion-title>More Topics</ion-title>
-  <ion-content>
-    <ion-row class="more-topics-list" *ngFor="let topic of topics" (click)="navigateToDetails(topic.id)">
-      <ion-text>{{ topic.title }}: {{topic.snippet}}</ion-text>
-    </ion-row>
-  </ion-content> -->
 </ion-content>
