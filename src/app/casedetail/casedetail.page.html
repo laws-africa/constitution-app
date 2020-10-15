@@ -18,8 +18,8 @@
       Related Topics
     </div>
   </ion-text>
-  <ion-list *ngFor="let topic of relatedTopics" [routerLink]="['topics/detail', topic.id]">
-    <ion-item>
+  <ion-list>
+    <ion-item *ngFor="let topic of relatedTopics" [routerLink]="['topics/detail', topic.id]">
       <ion-thumbnail slot="start">
         <img src="../../assets/images/{{topic.id}}.svg" onerror="this.src='../../assets/shapes.svg'">
       </ion-thumbnail>
