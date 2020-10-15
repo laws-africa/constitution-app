@@ -17,8 +17,9 @@ jobs:
       with:
         node-version: '12'
     - name: Install dependencies
-      run: npm install @ionic/cli
-      run: npm ci
+      run: |
+        npm install @ionic/cli
+        npm ci
 
     - name: Build
       run: ionic build --prod --engine=web
