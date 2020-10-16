@@ -9,6 +9,14 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
+  <ion-list>
+    <ion-item *ngFor="let provision of provisions">
+      <ion-label>
+        <h3>{{ provision.title }}</h3>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
   <ion-card *ngFor="let case of cases" (click)="navigateCaseToDetails(case.id)">
     <ion-grid>
       <ion-row>
