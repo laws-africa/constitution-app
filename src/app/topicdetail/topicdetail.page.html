@@ -18,8 +18,8 @@
       Related Cases
     </div>
   </ion-text>
-  <ion-list *ngFor="let case of linkedCases" [routerLink]="['cases/details', case.id]">
-    <ion-item>
+  <ion-list>
+    <ion-item *ngFor="let case of linkedCases" [routerLink]="['cases/details', case.id]">
       <ion-label>
         <h3>{{ case.title }}</h3>
         <p [innerHTML]="case.snippet"></p>

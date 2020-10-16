@@ -12,7 +12,7 @@ import * as Data from '../../assets/data/data.json';
 export class TopicdetailPage implements OnInit {
   data: any = (Data as any).default;
   topic: { title: '', summary: '', content: '', cases: []};
-  linkedCases: [] = [];
+  linkedCases: any[] = [];
 
   constructor(
     private router: Router,
@@ -26,7 +26,7 @@ export class TopicdetailPage implements OnInit {
       this.topic = this.data.topics.find((topic) => topic.id === params.id);
 
       for (const caseId of this.topic.cases) {
-        const linkedCase = this.topic.cases.find((id) => id === caseId);
+        const linkedCase = this.data.cases.find((c) => c.id === caseId);
         this.linkedCases.push(linkedCase);
       }
     });

@@ -17,8 +17,4 @@ export class CasesPage implements OnInit {
   ngOnInit() {
     this.cases = this.data.cases;
   }
-
-  navigateToDetails(id: any) {
-    this.navCtrl.navigateForward('tabs/cases/detail/' + id);
-  }
 }
