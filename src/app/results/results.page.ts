@@ -12,10 +12,10 @@ import * as Constitution from '../../assets/data/constitution.json';
 export class ResultsPage implements OnInit {
   data: any = (Data as any).default;
   constitution: any = (Constitution as any).default;
-  searchableProvisions: {title: string, content: string, id: string}[];
+  searchableProvisions: {title: string, content: string, id: string, titleLower: string}[];
   cases: [];
   topics: [];
-  provisions: {title: string, content: string, id: string}[];
+  provisions: {title: string, content: string, id: string, titleLower: string}[];
   term = '';
 
   constructor(private router: Router, private route: ActivatedRoute, private location: Location) {
@@ -29,7 +29,7 @@ export class ResultsPage implements OnInit {
 
       this.cases = this.data.cases.filter((x) => x.title.toLowerCase().includes(needle) || (x.summary ? x.summary.includes(needle) : null));
       this.topics = this.data.topics.filter((x) => x.title.toLowerCase().includes(needle) || (x.summary ? x.summary.includes(needle) : null));
-      this.provisions = this.searchableProvisions.filter((x) => x.title.includes(needle) || x.content.includes(needle));
+      this.provisions = this.searchableProvisions.filter((x) => x.titleLower.includes(needle) || x.content.includes(needle));
     });
   }
 
@@ -60,9 +60,11 @@ export class ResultsPage implements OnInit {
       section.querySelectorAll(selector).forEach(elem => {
         text.push(elem.textContent);
       });
+      const title = section.querySelector('h3').textContent;
 
       this.searchableProvisions.push({
-        title: section.querySelector('h3').textContent.toLocaleLowerCase(),
+        titleLower: title.toLocaleLowerCase(),
+        title: title,
         content: text.join(' ').toLocaleLowerCase(),
         id: section.id
       });
