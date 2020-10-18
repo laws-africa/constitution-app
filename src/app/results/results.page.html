@@ -7,44 +7,106 @@
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="segement" value="all">
+      <ion-segment-button value="all">
+        All
+      </ion-segment-button>
+      <ion-segment-button value="constitution">
+        Constitution
+      </ion-segment-button>
+      <ion-segment-button value="cases">
+        Cases
+      </ion-segment-button>
+      <ion-segment-button value="topics">
+        Topics
+      </ion-segment-button>
+    </ion-segment>
+
+  </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let provision of provisions">
-      <ion-label>
-        <h3>{{ provision.title }}</h3>
-      </ion-label>
-    </ion-item>
-  </ion-list>
-
-  <ion-card *ngFor="let case of cases" (click)="navigateCaseToDetails(case.id)">
-    <ion-grid>
-      <ion-row>
-        <ion-col size="3">
-          <img src="../../assets/images/{{case.id}}.svg" onerror="this.src='../../assets/shapes.svg'"> </ion-col>
-        <ion-col size="9">
-          <ion-card-header>
-            <ion-card-title>{{ case.title }}</ion-card-title>
-          </ion-card-header>
-          <ion-card-content [innerHTML]="case.snippet"></ion-card-content>
-          <ion-card-subtitle> Read more...</ion-card-subtitle>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
-  <ion-card *ngFor="let topic of topics" (click)="navigateTopicToDetails(topic.id)">
-    <ion-grid>
-      <ion-row>
-        <ion-col size="3">
-          <img src="../../assets/images/{{topic.id}}.svg" onerror="this.src='../../assets/shapes.svg'"> </ion-col>
-        <ion-col size="9">
-          <ion-card-header>
-            <ion-card-title>{{ topic.title }}</ion-card-title>
-          </ion-card-header>
-          <ion-card-content [innerHTML]="topic.snippet"></ion-card-content>
-          <ion-card-subtitle> Read more...</ion-card-subtitle>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
+  <div [ngSwitch]="segement">
+    <div *ngSwitchCase="'all'"  ngSelected="selected">
+      <ion-list>
+        <ion-item *ngFor="let provision of provisions"  [routerLink]="['constitution/detail', provision.id]">
+          <ion-label>
+            <h3>{{ provision.title }}</h3>
+          </ion-label>
+        </ion-item>
+        <ion-item *ngFor="let case of cases"  [routerLink]="['cases/detail', case.id]">
+          <ion-label>
+            <h3>{{ case.title }}</h3>
+            <p [innerHTML]="case.snippet"></p>
+          </ion-label>
+        </ion-item>
+        <ion-item *ngFor="let topic of topics"  [routerLink]="['topics/detail', topic.id]">
+          <ion-thumbnail slot="start">
+            <img src="../../assets/images/{{topic.id}}.svg" onerror="this.src='../../assets/shapes.svg'">
+          </ion-thumbnail>
+          <ion-label>
+            <h3>{{ topic.title }}</h3>
+            <p [innerHTML]="topic.snippet"></p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div *ngSwitchCase="'constitution'">
+      <ion-list>
+        <ion-item *ngFor="let provision of provisions">
+          <ion-label>
+            <h3>{{ provision.title }}</h3>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div *ngSwitchCase="'cases'">
+      <ion-list>
+        <ion-item *ngFor="let case of cases"  [routerLink]="['cases/detail', case.id]">
+          <ion-label>
+            <h3>{{ case.title }}</h3>
+            <p [innerHTML]="case.snippet"></p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div *ngSwitchCase="'topics'">
+      <ion-list>
+        <ion-item *ngFor="let topic of topics" [routerLink]="['topics/detail', topic.id]">
+          <ion-thumbnail slot="start">
+            <img src="../../assets/images/{{topic.id}}.svg" onerror="this.src='../../assets/shapes.svg'">
+          </ion-thumbnail>
+          <ion-label>
+            <h3>{{ topic.title }}</h3>
+            <p [innerHTML]="topic.snippet"></p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
 </ion-content>
+<!-- <ion-content>
+  <ion-segment value="all">
+ 
+  </ion-segment>
+  <ion-segment value="constitution">
+    <ion-list>
+      <ion-item *ngFor="let provision of provisions">
+        <ion-label>
+          <h3>{{ provision.title }}</h3>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-segment>
+  <ion-segment value="cases">
+    <ion-list>
+  
+    </ion-list>
+  </ion-segment>
+  <ion-segment value="topics">
+    <ion-list>
+    
+    </ion-list>
+    </ion-segment>do
+  </ion-segment>
+</ion-content> -->

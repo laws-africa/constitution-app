@@ -17,7 +17,8 @@ export class ResultsPage implements OnInit {
   topics: [];
   provisions: {title: string, content: string, id: string, titleLower: string}[];
   term = '';
-
+  segement = "all"
+  
   constructor(private router: Router, private route: ActivatedRoute, private location: Location) {
     this.setupConstitutionSearch();
   }
@@ -25,6 +26,7 @@ export class ResultsPage implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.term = params.term;
+
       const needle = this.term.toLocaleLowerCase();
 
       this.cases = this.data.cases.filter((x) => x.title.toLowerCase().includes(needle) || (x.summary ? x.summary.includes(needle) : null));

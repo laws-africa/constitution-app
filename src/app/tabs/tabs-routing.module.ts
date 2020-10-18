@@ -16,6 +16,10 @@ const routes: Routes = [
         loadChildren: () => import('../constitution/constitution.module').then(m => m.ConstitutionPageModule)
       },
       {
+        path: 'constitution/detail/:id',
+        loadChildren: () => import('../constitution/constitution.module').then(m => m.ConstitutionPageModule)
+      },
+      {
         path: 'home',
         loadChildren: () => import('../home/home.module').then(m => m.HomePageModule)
       },
