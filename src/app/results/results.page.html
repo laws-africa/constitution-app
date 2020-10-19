@@ -53,7 +53,7 @@
     </div>
     <div *ngSwitchCase="'constitution'">
       <ion-list>
-        <ion-item *ngFor="let provision of provisions">
+        <ion-item *ngFor="let provision of provisions"  [routerLink]="['constitution/detail', provision.id]">
           <ion-label>
             <h3>{{ provision.title }}</h3>
           </ion-label>
