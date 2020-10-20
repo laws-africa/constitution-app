@@ -7,18 +7,15 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-list-header>
+  <div class="ion-padding">
     <h3>{{case.title}}</h3>
-  </ion-list-header>
-  <ion-item>
-    <p [innerHTML]="case.summary"></p>
-  </ion-item>
-  <ion-text>
-    <div class="ion-padding">
-      Related Topics
-    </div>
-  </ion-text>
-  <ion-list>
+    <div class="case-summary" [innerHTML]="case.summary"></div>
+  </div>
+
+  <ion-list *ngIf="relatedTopics.length > 0">
+    <ion-list-header>
+      <ion-label>Related Topics</ion-label>
+    </ion-list-header>
     <ion-item *ngFor="let topic of relatedTopics" [routerLink]="['topics/detail', topic.id]">
       <ion-thumbnail slot="start">
         <img src="../../assets/images/{{topic.id}}.svg" onerror="this.src='../../assets/shapes.svg'">
