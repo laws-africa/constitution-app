@@ -24,4 +24,14 @@
       </ion-label>
     </ion-item>
   </ion-list>
+  <ion-list *ngIf="linkedReferences.length > 0">
+    <ion-list-header>
+      <ion-label>References</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let linkedReference of linkedReferences" [routerLink]="['/tabs/constitution/detail', linkedReference.id]">
+      <ion-label>
+        <h3>{{ linkedReference.title }}</h3>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
