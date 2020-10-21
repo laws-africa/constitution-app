@@ -8,14 +8,14 @@ const routes: Routes = [
     path: '',
     component: ResultsPage
   },
-  {
-    path: 'cases/detail/:id',
-    loadChildren: () => import('../casedetail/casedetail.module').then((m) => m.CaseDetailPageModule)
-  },
-  {
-    path: 'topics/detail/:id',
-    loadChildren: () => import('../topicdetail/topicdetail.module').then((m) => m.TopicdetailPageModule)
-  },
+  // {
+  //   path: 'cases/detail/:id',
+  //   loadChildren: () => import('../casedetail/casedetail.module').then((m) => m.CaseDetailPageModule)
+  // },
+  // {
+  //   path: 'topics/detail/:id',
+  //   loadChildren: () => import('../topicdetail/topicdetail.module').then((m) => m.TopicdetailPageModule)
+  // },
   {
     path: 'constitution/detail/:id',
     loadChildren: () => import('../constitution/constitution.module').then((m) => m.ConstitutionPageModule)

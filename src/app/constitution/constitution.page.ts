@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import * as Constitution from '../../assets/data/constitution.json';
 
@@ -14,7 +15,7 @@ export class ConstitutionPage implements OnInit, AfterViewInit {
 	newContent: any;
 	@ViewChild('akn') aknView: ElementRef;
 
-	constructor(private sanitized: DomSanitizer, private route: ActivatedRoute) {
+	constructor(private sanitized: DomSanitizer, private route: ActivatedRoute,  private location: Location) {
 		this.newContent = this.sanitized.bypassSecurityTrustHtml(this.constitution.body);
 	}
 
@@ -61,9 +62,10 @@ export class ConstitutionPage implements OnInit, AfterViewInit {
 				}
 			)
 		});
-
-
-
 		this.navigate = menuList;
 	}
+
+	previous() {
+    this.location.back();
+  }
 }

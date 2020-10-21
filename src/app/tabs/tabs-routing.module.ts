@@ -33,8 +33,9 @@ const routes: Routes = [
       },
       {
         path: 'results/:term',
-        loadChildren: () => import('../results/results.module').then( m => m.ResultsPageModule)
+        loadChildren: () => import('../results/results.module').then(m => m.ResultsPageModule)
       },
+
       {
         path: '',
         redirectTo: '/tabs/home',

@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
-import * as Data from '../../assets/data/data.json';
+import * as Data from '../../../assets/data/data.json';
+import { filter, pairwise } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-topicdetail',
-  templateUrl: './topicdetail.page.html',
-  styleUrls: ['./topicdetail.page.scss'],
+  selector: 'app-detail',
+  templateUrl: './detail.page.html',
+  styleUrls: ['./detail.page.scss'],
 })
-export class TopicdetailPage implements OnInit {
+export class DetailPage implements OnInit {
   data: any = (Data as any).default;
   topic: { title: '', summary: '', content: '', cases: []};
   linkedCases: any[] = [];
@@ -21,7 +22,8 @@ export class TopicdetailPage implements OnInit {
     private location: Location) {}
 
   ngOnInit() {
-    console.log(this.navCtrl);
+    console.log(this.router.getCurrentNavigation());
+
     this.route.params.subscribe(params => {
       this.topic = this.data.topics.find((topic) => topic.id === params.id);
 
@@ -30,5 +32,9 @@ export class TopicdetailPage implements OnInit {
         this.linkedCases.push(linkedCase);
       }
     });
+  }
+
+  previous() {
+    this.location.back();
   }
 }

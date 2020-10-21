@@ -2,9 +2,7 @@
   <ion-toolbar>
     <ion-title>Search results for "{{term}}"</ion-title>
     <ion-buttons slot="start">
-      <ion-button (click)="previous()">
-        <ion-icon name="arrow-back"></ion-icon>
-      </ion-button>
+      <ion-back-button defaultHref="/tabs/home"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
   <ion-toolbar>
@@ -29,18 +27,18 @@
   <div [ngSwitch]="segement">
     <div *ngSwitchCase="'all'"  ngSelected="selected">
       <ion-list>
-        <ion-item *ngFor="let provision of provisions"  [routerLink]="['constitution/detail', provision.id]">
+        <ion-item *ngFor="let provision of provisions"  [routerLink]="['/tabs/constitution/detail', provision.id]">
           <ion-label>
             <h3>{{ provision.title }}</h3>
           </ion-label>
         </ion-item>
-        <ion-item *ngFor="let case of cases"  [routerLink]="['cases/detail', case.id]">
+        <ion-item *ngFor="let case of cases"  [routerLink]="['/tabs/cases/detail', case.id]">
           <ion-label>
             <h3>{{ case.title }}</h3>
             <p [innerHTML]="case.snippet"></p>
           </ion-label>
         </ion-item>
-        <ion-item *ngFor="let topic of topics"  [routerLink]="['topics/detail', topic.id]">
+        <ion-item *ngFor="let topic of topics"  [routerLink]="['/tabs/topics/detail', topic.id]">
           <ion-thumbnail slot="start">
             <img src="../../assets/images/{{topic.id}}.svg" onerror="this.src='../../assets/shapes.svg'">
           </ion-thumbnail>
@@ -62,7 +60,7 @@
     </div>
     <div *ngSwitchCase="'cases'">
       <ion-list>
-        <ion-item *ngFor="let case of cases"  [routerLink]="['cases/detail', case.id]">
+        <ion-item *ngFor="let case of cases"  [routerLink]="['/tabs/cases/detail', case.id]">
           <ion-label>
             <h3>{{ case.title }}</h3>
             <p [innerHTML]="case.snippet"></p>
@@ -72,7 +70,7 @@
     </div>
     <div *ngSwitchCase="'topics'">
       <ion-list>
-        <ion-item *ngFor="let topic of topics" [routerLink]="['topics/detail', topic.id]">
+        <ion-item *ngFor="let topic of topics" [routerLink]="['/tabs/topics/detail', topic.id]">
           <ion-thumbnail slot="start">
             <img src="../../assets/images/{{topic.id}}.svg" onerror="this.src='../../assets/shapes.svg'">
           </ion-thumbnail>

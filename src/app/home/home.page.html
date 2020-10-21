@@ -11,7 +11,7 @@
   <ion-grid>
     <ion-row>
       <ion-col *ngFor="let item of highlights" size="12" size-sm="6" size-xl="4">
-        <ion-card [routerLink]="['topics/detail', item.id]" size="12">
+        <ion-card [routerLink]="['/tabs/topics/detail', item.id]" size="12">
           <ion-card-header>
 
             <ion-card-title>{{ item.title }}</ion-card-title>
@@ -28,9 +28,8 @@
   <ion-grid>
     <ion-row>
       <ion-col *ngFor="let item of featuredTopics" size="12" size-sm="6" size-xl="4">
-        <ion-card [routerLink]="['topics/detail', item.id]" size="12">
+        <ion-card [routerLink]="['/tabs/topics/detail', item.id]" size="12">
           <ion-card-header>
-
             <ion-card-title>{{ item.title }}</ion-card-title>
           </ion-card-header>
           <ion-card-content>
@@ -57,7 +56,7 @@
   <ion-grid>
     <ion-row>
       <ion-col *ngFor="let item of featuredCases" size="12" size-sm="6" size-xl="4">
-        <ion-card [routerLink]="['cases/detail', item.id]" size="12">
+        <ion-card [routerLink]="['/tabs/cases/detail', item.id]" size="12">
           <ion-card-header>
             <ion-card-title>{{ item.title }}</ion-card-title>
           </ion-card-header>

@@ -5,13 +5,12 @@ import { TopicsPage } from './topics.page';
 const routes: Routes = [
   {
     path: '',
-    component: TopicsPage
+    component: TopicsPage,
   },
   {
-    path: 'detail/:id',
-    loadChildren: () => import('../topicdetail/topicdetail.module').then((m) => m.TopicdetailPageModule)
-  }
-
+    path: 'detail',
+    loadChildren: () => import('./detail/detail.module').then( m => m.DetailPageModule)
+  },
 ];
 
 @NgModule({

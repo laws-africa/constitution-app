@@ -35,10 +35,6 @@ export class ResultsPage implements OnInit {
     });
   }
 
-  previous() {
-    this.location.back();
-  }
-
   navigateTopicToDetails(id: any) {
     this.router.navigateByUrl('tabs/topics/detail/' + id);
   }

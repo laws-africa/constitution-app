@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title>{{case.title}}</ion-title>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-button (click)="previous()"><ion-icon name="arrow-back"></ion-icon></ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -16,7 +16,7 @@
     <ion-list-header>
       <ion-label>Related Topics</ion-label>
     </ion-list-header>
-    <ion-item *ngFor="let topic of relatedTopics" [routerLink]="['topics/detail', topic.id]">
+    <ion-item *ngFor="let topic of relatedTopics" [routerLink]="['/tabs/topics/detail', topic.id]">
       <ion-thumbnail slot="start">
         <img src="../../assets/images/{{topic.id}}.svg" onerror="this.src='../../assets/shapes.svg'">
       </ion-thumbnail>

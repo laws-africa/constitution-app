@@ -1,7 +1,9 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-buttons slot="start">
+        <ion-button (click)="previous()"><ion-icon name="arrow-back"></ion-icon></ion-button>
+      </ion-buttons>
     </ion-buttons>
     <ion-title>{{topic.title}}</ion-title>
   </ion-toolbar>
@@ -15,7 +17,7 @@
     <ion-list-header>
       <ion-label>Related Cases</ion-label>
     </ion-list-header>
-    <ion-item *ngFor="let case of linkedCases" [routerLink]="['cases/details', case.id]">
+    <ion-item *ngFor="let case of linkedCases" [routerLink]="['/tabs/cases/detail', case.id]">
       <ion-label>
         <h3>{{ case.title }}</h3>
         <p [innerHTML]="case.snippet"></p>
