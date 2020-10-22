@@ -23,10 +23,10 @@ export class DetailPage implements OnInit {
   ngOnInit() {
     const topics: [] = this.data.topics;
 
-    // this.relatedTopics = [];
 
     this.route.params.subscribe(params => {
       this.case = this.data.cases.find((caseObject) => caseObject.id === params['id']);
+      this.relatedTopics = [];
 
       for (const topicId of this.case.topics) {
         const topic = topics.find(({id}) => id === topicId)

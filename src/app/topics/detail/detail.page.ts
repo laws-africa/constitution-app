@@ -43,6 +43,9 @@ export class DetailPage implements OnInit {
     this.route.params.subscribe(params => {
       this.topic = this.data.topics.find((topic) => topic.id === params.id);
       console.log(this.topic.references)
+      this.linkedReferences = [];
+      this.linkedCases = [];
+
       for (const reference of this.topic.references) {
 
         const linkedReference = this.getObject(this.constitutionData.toc, "id", reference);
